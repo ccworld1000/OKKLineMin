@@ -1,6 +1,0 @@
-framework module CCSQLite {
-  umbrella header "CCSQLite-umbrella.h"
-
-  export *
-  module * { export * }
-}

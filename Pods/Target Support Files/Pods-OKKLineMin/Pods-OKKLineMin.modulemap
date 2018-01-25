@@ -1,6 +1,0 @@
-framework module Pods_OKKLineMin {
-  umbrella header "Pods-OKKLineMin-umbrella.h"
-
-  export *
-  module * { export * }
-}

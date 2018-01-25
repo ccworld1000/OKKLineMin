@@ -31,9 +31,6 @@ Support
 ===
 Swift 4.0  | >= iOS 9+
 
-===
-bug : <a href="mailto:ccworld1000@gmail.com">ccworld1000@gmail.com</a>
-
 # MIT License
 ***
 
