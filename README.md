@@ -4,7 +4,7 @@
 
 :smile: **[OKKLineMin](https://github.com/ccworld1000/OKKLineMin)** fork from **[OKKLineSwift](https://github.com/Herb-Sun/OKKLineSwift)** 
 
-Swift4 to draw the stock K-line  **[for iOS]**
+**Swift4** to draw the stock K-line  **[for iOS]**
 
 **OKKLineMin adjust OKKLineSwift for min for learning**
 
@@ -22,7 +22,7 @@ iPhone X
 
 ### Change 
 - [x] add Pod
-- [x] swift3 -> swift4 **[Update]**
+- [x] swift4
 - [x] support iPhone X
 - [x] fix crash
 

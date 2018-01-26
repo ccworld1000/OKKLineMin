@@ -11,14 +11,10 @@ import UIKit
 class OKKLineMinVC: UIViewController {
 
     @IBOutlet weak var backgroundView: UIView!
-    let iphonexOffset : CGFloat = 30;
     var klineView: OKKLineView!
-    
-    
     var backButton: UIButton!;
+    
     func loadingUI() {
-        print(loadingUI)
-        
         backButton = UIButton(type: .custom)
         backButton.setTitle("Back", for: .normal)
         backButton.titleLabel?.font = UIFont.systemFont(size: 12)
@@ -34,7 +30,6 @@ class OKKLineMinVC: UIViewController {
     }
     
     @objc func backHandle(button: UIButton) {
-        print("backHandle")
         dismiss(animated: true, completion: nil)
     }
     
@@ -43,12 +38,7 @@ class OKKLineMinVC: UIViewController {
         
         self.view.backgroundColor = OKConfiguration.sharedConfiguration.main.backgroundColor
         klineView = OKKLineView()
-        klineView.doubleTapHandle = { () -> Void in
-            self.dismiss(animated: true, completion: nil)
-        }
-
         backgroundView.addSubview(self.klineView)
-        
         klineView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview()
         }
@@ -73,12 +63,9 @@ class OKKLineMinVC: UIViewController {
     }
     
     func sqliteHandle() {
-        print(sqliteHandle)
-        
         if let list = CCSQLiteData.readDefaultDataList() {
             let datas = list as! [[Double]]
             
-            print(datas.count)
             var dataArray = [OKKLineModel]()
             for data in datas {
                 let model = OKKLineModel(date: data[0], open: data[1], close: data[4], high: data[2], low: data[3], volume: data[5])
