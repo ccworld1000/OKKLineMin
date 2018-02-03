@@ -29,7 +29,6 @@
 
 class OKKLineView: OKView {
     
-    public var doubleTapHandle: (() -> Void)?
     private var klineDrawView: OKKLineDrawView!
     private var timeSegmentView: OKSegmentView!
     private var mainViewIndicatorSegmentView: OKSegmentView!
@@ -40,20 +39,11 @@ class OKKLineView: OKView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        klineDrawView = OKKLineDrawView()
-        klineDrawView.doubleTapHandle = {
-            self.doubleTapHandle?()
-        }
-        addSubview(klineDrawView)
-        klineDrawView.snp.makeConstraints { (make) in
-            make.edges.equalTo(OKEdgeInsets(top: 0, left: 0, bottom: 44, right: 50))
-        }
-        
-        setupTimeSegment()
-        setupMainViewSegment()
-        setupVolumeViewSegment()
-        setupAccessoryViewSegment()
-        
+        loadingpDrawView()
+        loadingpTimeSegment()
+        loadingpMainViewSegment()
+        loadingpVolumeViewSegment()
+        loadingpAccessoryViewSegment()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,8 +55,18 @@ class OKKLineView: OKView {
         klineDrawView.drawKLineView(true)
     }
     
+    /// DrawView
+    private func loadingpDrawView() {
+        
+        klineDrawView = OKKLineDrawView()
+        addSubview(klineDrawView)
+        klineDrawView.snp.makeConstraints { (make) in
+            make.edges.equalTo(OKEdgeInsets(top: 0, left: 0, bottom: 44, right: 50))
+        }
+    }
+    
     /// 设置时间分割视图
-    private func setupTimeSegment() {
+    private func loadingpTimeSegment() {
         
         let timeTitles = ["分时", "1分", "5分", "15分", "30分", "60分", "日K", "周K", "月K", "季K", "年K"]
         timeSegmentView = OKSegmentView(direction: .horizontal, titles: timeTitles)
@@ -88,12 +88,12 @@ class OKKLineView: OKView {
     
     
     /// 设置主图指标分割视图
-    private func setupMainViewSegment() {
+    private func loadingpMainViewSegment() {
         
         let mainViewIndicatorTitles = ["MA", "EMA", "BOLL"]
         mainViewIndicatorSegmentView = OKSegmentView(direction: .vertical,
                                                      titles: mainViewIndicatorTitles)
-        
+
         mainViewIndicatorSegmentView.didSelectedSegment = { [weak self] (segmentView, result) -> Void in
             if result.index == 0 {
                 self?.configuration.main.indicatorType = .MA([12, 26])
@@ -116,7 +116,7 @@ class OKKLineView: OKView {
     
     
     /// 设置成交量指标的分割视图
-    private func setupVolumeViewSegment() {
+    private func loadingpVolumeViewSegment() {
         let volumeViewIndicatorTitles = ["MA", "EMA"]
         volumeViewIndicatorSegmentView = OKSegmentView(direction: .vertical,
                                                        titles: volumeViewIndicatorTitles)
@@ -141,7 +141,7 @@ class OKKLineView: OKView {
     
     
     /// 设置指标分割视图
-    private func setupAccessoryViewSegment() {
+    private func loadingpAccessoryViewSegment() {
         
         let accessoryViewIndicatorTitles = ["MACD", "KDJ"]
         accessoryViewIndicatorSegmentView = OKSegmentView(direction: .vertical,
@@ -157,7 +157,7 @@ class OKKLineView: OKView {
             }
             self?.klineDrawView.drawKLineView(false)
         }
-        
+
         addSubview(accessoryViewIndicatorSegmentView)
         accessoryViewIndicatorSegmentView.snp.makeConstraints { (make) in
             make.top.equalTo(volumeViewIndicatorSegmentView.snp.bottom)

@@ -30,8 +30,6 @@
 class OKKLineDrawView: OKView {
     
     // MARK: - Property
-    public var doubleTapHandle: (() -> Void)?
-    
     fileprivate let configuration = OKConfiguration.sharedConfiguration
     
     fileprivate let drawValueViewWidth: CGFloat = 50.0
@@ -60,7 +58,6 @@ class OKKLineDrawView: OKView {
             let count = Int((bounds.width - drawValueViewWidth) / (configuration.theme.klineSpace + configuration.theme.klineWidth))
             
             if count <= 0 {
-//                return 200;
                 return 100;
             }
             
@@ -83,10 +80,6 @@ class OKKLineDrawView: OKView {
             // 长按手势
             let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressAction(_:)))
             addGestureRecognizer(longPressGesture)
-            // 双击手势
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureAction(_:)))
-            tapGesture.numberOfTapsRequired = 2
-            addGestureRecognizer(tapGesture)
             // 移动手势
             let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction(_:)))
             addGestureRecognizer(panGesture)
@@ -422,12 +415,6 @@ extension OKKLineDrawView {
                 accessoryView.drawAssistView(model: nil)
             }
         }
-        
-        // MARK: 双击手势
-        @objc
-        fileprivate func tapGestureAction(_ recognizer: UITapGestureRecognizer) {
-            doubleTapHandle?()
-        }
     }
 #else
     // MARK: - macOS手势
@@ -597,9 +584,6 @@ extension OKKLineDrawView {
             mainView.drawAssistView(model: drawModel)
             volumeView.drawVolumeAssistView(model: drawModel)
             accessoryView.drawAssistView(model: drawModel)
-            
         }
-        
-
     }
 #endif
