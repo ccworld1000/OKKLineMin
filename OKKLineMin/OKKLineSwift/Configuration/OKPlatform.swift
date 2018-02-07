@@ -22,6 +22,7 @@
 //  SOFTWARE.
 
 import SnapKit
+import CoreFoundation
 
 #if os(iOS) || os(tvOS)
     
@@ -246,6 +247,43 @@ extension OKDescriptable {
             string += String(str) + "\n"
         }
         return string
+    }
+}
+
+// fix frame bound compare by CC on 2018/2/7
+extension CGRect {
+    public static func isSame(_ rect1 : CGRect, _ rect2 : CGRect) -> Bool {
+        let min : Double = 0.000001
+        var delta1 : CGFloat = rect1.origin.x - rect2.origin.x
+        var delta2 : CGFloat = rect1.origin.y - rect2.origin.y
+        var delta3 : CGFloat = rect1.size.width - rect2.size.width
+        var delta4 : CGFloat = rect1.size.height - rect2.size.height
+        
+        if delta1 != 0 {
+            if fabs(Double(delta1)) < min {
+                delta1 = 0
+            }
+        }
+        
+        if delta2 != 0 {
+            if fabs(Double(delta1)) < min {
+                delta2 = 0
+            }
+        }
+        
+        if delta3 != 0 {
+            if fabs(Double(delta1)) < min {
+                delta3 = 0
+            }
+        }
+        
+        if delta4 != 0 {
+            if fabs(Double(delta4)) < min {
+                delta4 = 0
+            }
+        }
+        
+        return (delta1 == 0) && (delta2 == 0) && (delta3 == 0) && (delta4 == 0)
     }
 }
 

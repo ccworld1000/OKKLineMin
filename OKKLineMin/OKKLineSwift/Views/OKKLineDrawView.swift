@@ -86,7 +86,7 @@ class OKKLineDrawView: OKView {
         #endif
             
         setupSubviews()
-        
+
     }
 
     required init?(coder aDecoder: NSCoder) {

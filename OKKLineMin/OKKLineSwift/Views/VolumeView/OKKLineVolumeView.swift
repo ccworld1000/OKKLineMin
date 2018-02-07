@@ -93,14 +93,13 @@ class OKKLineVolumeView: OKView {
             let limitValue = fetchLimitValue() else {
             return
         }
-        
-//        guard __CGPointEqualToPoint(rect.origin, bounds.origin) &&
-//            __CGSizeEqualToSize(rect.size, bounds.size)
-//            else {
-//
-//                drawAssistString?.draw(in: rect)
-//                return
-//        }
+                
+        guard CGRect.isSame(rect, bounds)
+            else {
+                
+                drawAssistString?.draw(in: rect)
+                return
+        }
         
         // 绘制指标数据
         fetchAssistString(model: volumeDrawKLineModels.last!)

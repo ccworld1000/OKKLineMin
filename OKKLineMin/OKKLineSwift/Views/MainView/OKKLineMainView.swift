@@ -110,13 +110,12 @@ class OKKLineMainView: OKView {
                 return
         }
         
-//        guard __CGPointEqualToPoint(rect.origin, bounds.origin) &&
-//            __CGSizeEqualToSize(rect.size, bounds.size)
-//        else {
-//
-//            drawAssistString?.draw(in: rect)
-//            return
-//        }
+        guard CGRect.isSame(rect, bounds)
+        else {
+
+            drawAssistString?.draw(in: rect)
+            return
+        }
         
         // 设置日期背景色
         context.setFillColor(configuration.main.assistViewBgColor.cgColor)

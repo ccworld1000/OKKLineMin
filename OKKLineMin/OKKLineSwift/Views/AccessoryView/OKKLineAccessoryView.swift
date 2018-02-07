@@ -104,13 +104,12 @@ class OKKLineAccessoryView: OKView {
             return
         }
 
-//        guard __CGPointEqualToPoint(rect.origin, bounds.origin) &&
-//            __CGSizeEqualToSize(rect.size, bounds.size)
-//            else {
-//
-//                drawAssistString?.draw(in: rect)
-//                return
-//        }
+        guard CGRect.isSame(rect, bounds)
+            else {
+
+                drawAssistString?.draw(in: rect)
+                return
+        }
         
         fetchAssistString(model: accessoryDrawKLineModels.last!)
         drawAssistString?.draw(in: rect)
