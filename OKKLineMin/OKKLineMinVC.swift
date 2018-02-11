@@ -4,7 +4,7 @@
 //
 //  Created by dengyouhua on 25/01/2018.
 //  Copyright © 2018 cc | ccworld1000@gmail.com. All rights reserved.
-//
+//  https://github.com/ccworld1000/OKKLineMin
 
 import UIKit
 
@@ -14,37 +14,10 @@ class OKKLineMinVC: UIViewController {
     var klineView: OKKLineView!
     var backButton: UIButton!;
     
-    func loadingUI() {
-        backButton = UIButton(type: .custom)
-        backButton.setTitle("Back", for: .normal)
-        backButton.titleLabel?.font = UIFont.systemFont(size: 12)
-        backButton.backgroundColor = UIColor.blue
-        backButton.addTarget(self, action:#selector(backHandle(button:)) , for: .touchUpInside)
-        
-        backgroundView.addSubview(backButton)
-        backButton.snp.makeConstraints { (make) in
-            make.top.equalToSuperview()
-            make.left.equalToSuperview()
-            make.size.equalTo(CGSize(width: 50, height: 20))
-        }
-    }
-    
-    @objc func backHandle(button: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = OKConfiguration.sharedConfiguration.main.backgroundColor
-        klineView = OKKLineView()
-        backgroundView.addSubview(self.klineView)
-        klineView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
-        }
-        
         loadingUI()
-
         sqliteHandle()
     }
     
@@ -60,6 +33,32 @@ class OKKLineMinVC: UIViewController {
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .landscape
+    }
+    
+    @objc func backHandle(button: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func loadingUI() {
+        self.view.backgroundColor = OKConfiguration.sharedConfiguration.main.backgroundColor
+        klineView = OKKLineView()
+        backgroundView.addSubview(self.klineView)
+        klineView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+        
+        backButton = UIButton(type: .custom)
+        backButton.setTitle("Back", for: .normal)
+        backButton.titleLabel?.font = UIFont.systemFont(size: 12)
+        backButton.backgroundColor = UIColor.blue
+        backButton.addTarget(self, action:#selector(backHandle(button:)) , for: .touchUpInside)
+        
+        backgroundView.addSubview(backButton)
+        backButton.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.left.equalToSuperview()
+            make.size.equalTo(CGSize(width: 50, height: 20))
+        }
     }
     
     func sqliteHandle() {

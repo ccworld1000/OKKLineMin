@@ -4,7 +4,7 @@
 //
 //  Created by dengyouhua on 25/01/2018.
 //  Copyright © 2018 cc | ccworld1000@gmail.com. All rights reserved.
-//
+//  https://github.com/ccworld1000/OKKLineMin
 
 import UIKit
 

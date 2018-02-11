@@ -39,11 +39,11 @@ class OKKLineView: OKView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        loadingpDrawView()
-        loadingpTimeSegment()
-        loadingpMainViewSegment()
-        loadingpVolumeViewSegment()
-        loadingpAccessoryViewSegment()
+        loadingDrawView()
+        loadingTimeSegment()
+        loadingMainViewSegment()
+        loadingVolumeViewSegment()
+        loadingAccessoryViewSegment()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,7 +56,7 @@ class OKKLineView: OKView {
     }
     
     /// DrawView
-    private func loadingpDrawView() {
+    private func loadingDrawView() {
         
         klineDrawView = OKKLineDrawView()
         addSubview(klineDrawView)
@@ -66,7 +66,7 @@ class OKKLineView: OKView {
     }
     
     /// 设置时间分割视图
-    private func loadingpTimeSegment() {
+    private func loadingTimeSegment() {
         
         let timeTitles = ["分时", "1分", "5分", "15分", "30分", "60分", "日K", "周K", "月K", "季K", "年K"]
         timeSegmentView = OKSegmentView(direction: .horizontal, titles: timeTitles)
@@ -88,7 +88,7 @@ class OKKLineView: OKView {
     
     
     /// 设置主图指标分割视图
-    private func loadingpMainViewSegment() {
+    private func loadingMainViewSegment() {
         
         let mainViewIndicatorTitles = ["MA", "EMA", "BOLL"]
         mainViewIndicatorSegmentView = OKSegmentView(direction: .vertical,
@@ -116,7 +116,7 @@ class OKKLineView: OKView {
     
     
     /// 设置成交量指标的分割视图
-    private func loadingpVolumeViewSegment() {
+    private func loadingVolumeViewSegment() {
         let volumeViewIndicatorTitles = ["MA", "EMA"]
         volumeViewIndicatorSegmentView = OKSegmentView(direction: .vertical,
                                                        titles: volumeViewIndicatorTitles)
@@ -141,7 +141,7 @@ class OKKLineView: OKView {
     
     
     /// 设置指标分割视图
-    private func loadingpAccessoryViewSegment() {
+    private func loadingAccessoryViewSegment() {
         
         let accessoryViewIndicatorTitles = ["MACD", "KDJ"]
         accessoryViewIndicatorSegmentView = OKSegmentView(direction: .vertical,

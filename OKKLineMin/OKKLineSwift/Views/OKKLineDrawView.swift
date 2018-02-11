@@ -85,7 +85,7 @@ class OKKLineDrawView: OKView {
             addGestureRecognizer(panGesture)
         #endif
             
-        setupSubviews()
+        loadingSubviews()
 
     }
 
@@ -137,38 +137,15 @@ class OKKLineDrawView: OKView {
 
 // MARK: - 子视图
 extension OKKLineDrawView {
-    fileprivate func setupSubviews() {
+    fileprivate func loadingSubviews() {
         
-        setupMainView()
-        setupVolumeView()
-        setupAccessoryView()
-        
-        /// 指示器
-        indicatorVerticalView = OKView()
-        indicatorVerticalView.isHidden = true
-        indicatorVerticalView.okBackgroundColor = configuration.theme.longPressLineColor
-        addSubview(indicatorVerticalView)
-        indicatorVerticalView.snp.makeConstraints { (make) in
-            make.bottom.equalToSuperview()
-            make.top.equalTo(configuration.main.topAssistViewHeight)
-            make.width.equalTo(configuration.theme.longPressLineWidth)
-            make.leading.equalTo(0)
-        }
-        
-        indicatorHorizontalView = OKView()
-        indicatorHorizontalView.isHidden = true
-        indicatorHorizontalView.okBackgroundColor = configuration.theme.longPressLineColor
-        addSubview(indicatorHorizontalView)
-        indicatorHorizontalView.snp.makeConstraints { (make) in
-            make.leading.equalTo(drawValueViewWidth)
-            make.trailing.equalTo(0)
-            make.height.equalTo(configuration.theme.longPressLineWidth)
-            make.top.equalTo(0)
-        }
-        
+        loadingMainView()
+        loadingVolumeView()
+        loadingAccessoryView()
+        loadingIndicator()
     }
     
-    private func setupMainView() {
+    private func loadingMainView() {
         /// Main View
         mainView = OKKLineMainView()
         mainView.limitValueChanged = { [weak self] (_ limitValue: (minValue: Double, maxValue: Double)?) -> Void in
@@ -198,7 +175,7 @@ extension OKKLineDrawView {
         }
     }
     
-    private func setupVolumeView() {
+    private func loadingVolumeView() {
         /// Volume View
         volumeView = OKKLineVolumeView()
         volumeView.limitValueChanged = { [weak self] (_ limitValue: (minValue: Double, maxValue: Double)?) -> Void in
@@ -225,7 +202,7 @@ extension OKKLineDrawView {
         }
     }
     
-    private func setupAccessoryView() {
+    private func loadingAccessoryView() {
         /// Accessory View
         accessoryView = OKKLineAccessoryView()
         accessoryView.limitValueChanged = { [weak self] (_ limitValue: (minValue: Double, maxValue: Double)?) -> Void in
@@ -249,6 +226,31 @@ extension OKKLineDrawView {
             make.trailing.equalTo(self.accessoryView.snp.leading)
             make.top.equalTo(self.accessoryView.snp.top)
             make.bottom.equalTo(self.accessoryView.snp.bottom)
+        }
+    }
+    
+    private func loadingIndicator() {
+        /// 指示器
+        indicatorVerticalView = OKView()
+        indicatorVerticalView.isHidden = true
+        indicatorVerticalView.okBackgroundColor = configuration.theme.longPressLineColor
+        addSubview(indicatorVerticalView)
+        indicatorVerticalView.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview()
+            make.top.equalTo(configuration.main.topAssistViewHeight)
+            make.width.equalTo(configuration.theme.longPressLineWidth)
+            make.leading.equalTo(0)
+        }
+        
+        indicatorHorizontalView = OKView()
+        indicatorHorizontalView.isHidden = true
+        indicatorHorizontalView.okBackgroundColor = configuration.theme.longPressLineColor
+        addSubview(indicatorHorizontalView)
+        indicatorHorizontalView.snp.makeConstraints { (make) in
+            make.leading.equalTo(drawValueViewWidth)
+            make.trailing.equalTo(0)
+            make.height.equalTo(configuration.theme.longPressLineWidth)
+            make.top.equalTo(0)
         }
     }
 }
