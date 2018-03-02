@@ -72,19 +72,16 @@ class OKKLineDrawView: OKView {
         
         okBackgroundColor = configuration.main.backgroundColor
         
-        #if os(iOS) || os(tvOS)
+        // 捏合手势
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(_:)))
+        addGestureRecognizer(pinchGesture)
+        // 长按手势
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressAction(_:)))
+        addGestureRecognizer(longPressGesture)
+        // 移动手势
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction(_:)))
+        addGestureRecognizer(panGesture)
 
-            // 捏合手势
-            let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(_:)))
-            addGestureRecognizer(pinchGesture)
-            // 长按手势
-            let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressAction(_:)))
-            addGestureRecognizer(longPressGesture)
-            // 移动手势
-            let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panGestureAction(_:)))
-            addGestureRecognizer(panGesture)
-        #endif
-            
         loadingSubviews()
 
     }
