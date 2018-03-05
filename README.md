@@ -2,14 +2,8 @@
 
 ### Intro
 
-**OKKLineMin adjust OKKLineSwift for min for learning**
+**OKKLineMin kline for min for learning for iPhone**
 
-:smile: **[OKKLineMin](https://github.com/ccworld1000/OKKLineMin)** fork from **[OKKLineSwift](https://github.com/Herb-Sun/OKKLineSwift)** 
-
-**Swift4** to draw the stock K-line  **[for iOS]**
-
-
-site: [https://github.com/ccworld1000/OKKLineMin](https://github.com/ccworld1000/OKKLineMin)
 ### Screenshot
 
 [Support drag gestures, long press gestures (see details), knead gestures (zoom in)]
