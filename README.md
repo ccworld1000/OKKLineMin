@@ -4,6 +4,11 @@
 
 **OKKLineMin kline for min for learning for iPhone**
 
+### Change 
+- [x] support Swift 4
+- [x] support iPhone X
+- [x] fix crash
+
 ### Screenshot
 
 [Support drag gestures, long press gestures (see details), knead gestures (zoom in)]
@@ -13,16 +18,6 @@
 iPhone X
 
 ![X](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/X.png) 
-
-OKKLineMin
-
-![X](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/Min.png) 
-
-
-### Change 
-- [x] support Swift 4
-- [x] support iPhone X
-- [x] fix crash
 
 
 # MIT License
