@@ -34,6 +34,8 @@
 		0012EE872019C6F600EEED92 /* OKSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0012EE732019C6F600EEED92 /* OKSegmentView.swift */; };
 		0012EE882019C6F600EEED92 /* OKKLineVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0012EE752019C6F600EEED92 /* OKKLineVolumeView.swift */; };
 		0012EE8A2019C78700EEED92 /* OKKLineMinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0012EE892019C78700EEED92 /* OKKLineMinVC.swift */; };
+		009ECEDF204FC8F200558BC0 /* CCSQLiteData.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 009ECEDD204FC8F200558BC0 /* CCSQLiteData.sqlite-shm */; };
+		009ECEE0204FC8F200558BC0 /* CCSQLiteData.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 009ECEDE204FC8F200558BC0 /* CCSQLiteData.sqlite-wal */; };
 		23D0DC9865F8048FC3BCFB74 /* Pods_OKKLineMin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95C251741823382CBC59A5D /* Pods_OKKLineMin.framework */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +71,8 @@
 		0012EE732019C6F600EEED92 /* OKSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKSegmentView.swift; sourceTree = "<group>"; };
 		0012EE752019C6F600EEED92 /* OKKLineVolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKKLineVolumeView.swift; sourceTree = "<group>"; };
 		0012EE892019C78700EEED92 /* OKKLineMinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKKLineMinVC.swift; sourceTree = "<group>"; };
+		009ECEDD204FC8F200558BC0 /* CCSQLiteData.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CCSQLiteData.sqlite-shm"; sourceTree = "<group>"; };
+		009ECEDE204FC8F200558BC0 /* CCSQLiteData.sqlite-wal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CCSQLiteData.sqlite-wal"; sourceTree = "<group>"; };
 		B94ED120A65D5F5E76115D4C /* Pods-OKKLineMin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OKKLineMin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OKKLineMin/Pods-OKKLineMin.debug.xcconfig"; sourceTree = "<group>"; };
 		B95AF30558C165712AA170EF /* Pods-OKKLineMin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OKKLineMin.release.xcconfig"; path = "Pods/Target Support Files/Pods-OKKLineMin/Pods-OKKLineMin.release.xcconfig"; sourceTree = "<group>"; };
 		C95C251741823382CBC59A5D /* Pods_OKKLineMin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OKKLineMin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +131,8 @@
 				0012EE542019C5CB00EEED92 /* CCSQLiteData.h */,
 				0012EE552019C5CB00EEED92 /* CCSQLiteData.m */,
 				0012EE562019C5CB00EEED92 /* CCSQLiteData.sqlite */,
+				009ECEDD204FC8F200558BC0 /* CCSQLiteData.sqlite-shm */,
+				009ECEDE204FC8F200558BC0 /* CCSQLiteData.sqlite-wal */,
 			);
 			path = CCSQLiteData;
 			sourceTree = SOURCE_ROOT;
@@ -311,7 +317,9 @@
 			files = (
 				0012EE062019C45200EEED92 /* LaunchScreen.storyboard in Resources */,
 				0012EE582019C5CB00EEED92 /* CCSQLiteData.sqlite in Resources */,
+				009ECEDF204FC8F200558BC0 /* CCSQLiteData.sqlite-shm in Resources */,
 				0012EE032019C45200EEED92 /* Assets.xcassets in Resources */,
+				009ECEE0204FC8F200558BC0 /* CCSQLiteData.sqlite-wal in Resources */,
 				0012EE012019C45200EEED92 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

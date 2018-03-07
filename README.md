@@ -19,6 +19,10 @@ iPhone X
 
 ![X](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/X.png) 
 
+iPhone Device
+
+![iPhoneDevice](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/iPhoneDevice.png) 
+
 
 # MIT License
 ***
