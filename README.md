@@ -2,12 +2,7 @@
 
 ### Intro
 
-**OKKLineMin kline for min for learning for iPhone**
-
-### Change 
-- [x] support Swift 4
-- [x] support iPhone X
-- [x] fix crash
+**OKKLineMin kline for min for learning for iPhone** *(support Swift4 & iPhone X)* 
 
 ### Screenshot
 
@@ -15,9 +10,13 @@
 
 ![OKKLineMin](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/OKKLineMin.gif)
 
-iPhone X
+iPhone X Full
 
 ![X](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/X.png) 
+
+iPhone X Half
+
+![X](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/Half.png) 
 
 iPhone Device
 

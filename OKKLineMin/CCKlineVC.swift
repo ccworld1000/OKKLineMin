@@ -13,9 +13,9 @@ class CCKlineVC: UIViewController {
 
     @IBOutlet weak var backgroundView: UIView!
     var klineView: OKKLineView!
-    var backButton: UIButton!;
+    var backButton: UIButton!
     
-//    var isFull : Bool
+    var isFull : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,11 @@ class CCKlineVC: UIViewController {
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
-        return .portrait
+        if isFull {
+            return .landscape
+        } else {
+            return .portrait
+        }
     }
     
     @objc func backHandle(button: UIButton) {
@@ -77,7 +81,6 @@ class CCKlineVC: UIViewController {
             self.klineView.drawKLineView(klineModels: dataArray)
         }
     }
-
 }
 
 

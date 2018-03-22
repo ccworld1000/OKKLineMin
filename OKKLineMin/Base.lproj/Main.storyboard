@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CCI-Xi-A1j">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,48 +9,102 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--two-->
+        <scene sceneID="44s-Ky-N3r">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OKKLineMin" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <viewController id="PE6-RA-k2t" customClass="CCTwoVC" customModule="OKKLineMin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="doO-Yc-sJ3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dp-nS-tmG">
-                                <rect key="frame" x="88" y="308.5" width="200" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gmd-p7-drS">
+                                <rect key="frame" x="87.5" y="308" width="200" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="EnY-4S-f5A"/>
-                                    <constraint firstAttribute="height" constant="50" id="eGU-Ui-lY8"/>
+                                    <constraint firstAttribute="width" constant="200" id="cKk-io-kxp"/>
+                                    <constraint firstAttribute="height" constant="50" id="xKJ-id-al5"/>
+                                </constraints>
+                                <state key="normal" title="OKKLineMin Half"/>
+                                <connections>
+                                    <segue destination="g0H-98-Tuw" kind="presentation" identifier="HALF" id="HW6-ce-NE4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A30-Ps-OsH">
+                                <rect key="frame" x="87.5" y="208" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Fnv-lt-2Dh"/>
+                                    <constraint firstAttribute="width" constant="200" id="Q49-KR-FsL"/>
                                 </constraints>
                                 <state key="normal" title="OKKLineMin Full"/>
                                 <connections>
-                                    <segue destination="71J-Yr-dKi" kind="presentation" id="HtS-6M-Jqf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKi-g6-Sfe">
-                                <rect key="frame" x="88" y="408.5" width="200" height="50"/>
-                                <state key="normal" title="OKKLineMin Half"/>
-                                <connections>
-                                    <segue destination="g0H-98-Tuw" kind="presentation" id="1xt-oj-BBS"/>
+                                    <segue destination="g0H-98-Tuw" kind="presentation" identifier="FULL" id="Xvc-xV-gzG"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.90937095438229265" blue="0.33234092962868356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.78442876589775834" green="0.98431372549999996" blue="0.44306678289300494" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lKi-g6-Sfe" firstAttribute="centerX" secondItem="3dp-nS-tmG" secondAttribute="centerX" id="DqX-bq-VBo"/>
-                            <constraint firstItem="lKi-g6-Sfe" firstAttribute="top" secondItem="3dp-nS-tmG" secondAttribute="bottom" constant="50" id="Edr-N0-eEO"/>
-                            <constraint firstItem="3dp-nS-tmG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZLN-pR-YJp"/>
-                            <constraint firstItem="lKi-g6-Sfe" firstAttribute="width" secondItem="3dp-nS-tmG" secondAttribute="width" id="qsA-XB-bw0"/>
-                            <constraint firstItem="lKi-g6-Sfe" firstAttribute="height" secondItem="3dp-nS-tmG" secondAttribute="height" id="t4d-GG-y6c"/>
-                            <constraint firstItem="3dp-nS-tmG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xqk-cf-ccu"/>
+                            <constraint firstItem="Gmd-p7-drS" firstAttribute="top" secondItem="A30-Ps-OsH" secondAttribute="bottom" constant="50" id="57Y-sz-alH"/>
+                            <constraint firstItem="A30-Ps-OsH" firstAttribute="centerX" secondItem="Gmd-p7-drS" secondAttribute="centerX" id="Agu-Ss-UjK"/>
+                            <constraint firstItem="Gmd-p7-drS" firstAttribute="centerX" secondItem="doO-Yc-sJ3" secondAttribute="centerX" id="UgR-Vu-mKU"/>
+                            <constraint firstItem="Gmd-p7-drS" firstAttribute="centerY" secondItem="doO-Yc-sJ3" secondAttribute="centerY" id="tCM-Op-0aj"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <viewLayoutGuide key="safeArea" id="rag-fX-Nr4"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="two" id="IJE-GI-MXd"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aFF-dH-SXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-178" y="45"/>
+            <point key="canvasLocation" x="-588" y="1100"/>
+        </scene>
+        <!--one-->
+        <scene sceneID="yAr-be-F2M">
+            <objects>
+                <viewController id="MbY-AK-9Z4" customClass="CCOneVC" customModule="OKKLineMin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K0e-Pb-I3w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlr-qJ-yta">
+                                <rect key="frame" x="87.5" y="308.5" width="200" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="B3D-j3-QHF"/>
+                                    <constraint firstAttribute="width" constant="200" id="x5H-74-Jaf"/>
+                                </constraints>
+                                <state key="normal" title="OKKLineMin Full"/>
+                                <connections>
+                                    <segue destination="71J-Yr-dKi" kind="presentation" id="Bax-EI-XZg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.90937095440000004" blue="0.3323409296" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="qlr-qJ-yta" firstAttribute="centerY" secondItem="K0e-Pb-I3w" secondAttribute="centerY" id="CJ7-8s-buS"/>
+                            <constraint firstItem="qlr-qJ-yta" firstAttribute="centerX" secondItem="K0e-Pb-I3w" secondAttribute="centerX" id="ytX-gM-gs9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FO2-Ne-YPX"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="one" id="kyR-j4-Xbi"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tsu-Kt-AqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-588" y="429"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="7uh-r4-tmT">
+            <objects>
+                <tabBarController id="CCI-Xi-A1j" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KJu-eW-ZjZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="MbY-AK-9Z4" kind="relationship" relationship="viewControllers" id="lf9-zQ-aYE"/>
+                        <segue destination="PE6-RA-k2t" kind="relationship" relationship="viewControllers" id="qmV-6d-XVt"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yTU-PE-PZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1385" y="765"/>
         </scene>
         <!--Line MinVC-->
         <scene sceneID="fBc-19-bvq">
@@ -80,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zUN-ah-eEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="609" y="-355"/>
+            <point key="canvasLocation" x="263" y="429"/>
         </scene>
         <!--KlineVC-->
         <scene sceneID="PQm-8u-taF">
@@ -109,7 +163,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfK-RD-kuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="610" y="313"/>
+            <point key="canvasLocation" x="263" y="1100"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="HW6-ce-NE4"/>
+    </inferredMetricsTieBreakers>
 </document>

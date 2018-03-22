@@ -37,6 +37,8 @@
 		006D8FCF20625C17008168AA /* CCKlineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D8FCE20625C17008168AA /* CCKlineVC.swift */; };
 		009ECEDF204FC8F200558BC0 /* CCSQLiteData.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 009ECEDD204FC8F200558BC0 /* CCSQLiteData.sqlite-shm */; };
 		009ECEE0204FC8F200558BC0 /* CCSQLiteData.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 009ECEDE204FC8F200558BC0 /* CCSQLiteData.sqlite-wal */; };
+		00FDE9FE20633F0800E25E0E /* CCOneVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FDE9FD20633F0800E25E0E /* CCOneVC.swift */; };
+		00FDEA0020633F1D00E25E0E /* CCTwoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FDE9FF20633F1D00E25E0E /* CCTwoVC.swift */; };
 		23D0DC9865F8048FC3BCFB74 /* Pods_OKKLineMin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95C251741823382CBC59A5D /* Pods_OKKLineMin.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +77,8 @@
 		006D8FCE20625C17008168AA /* CCKlineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCKlineVC.swift; sourceTree = "<group>"; };
 		009ECEDD204FC8F200558BC0 /* CCSQLiteData.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CCSQLiteData.sqlite-shm"; sourceTree = "<group>"; };
 		009ECEDE204FC8F200558BC0 /* CCSQLiteData.sqlite-wal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CCSQLiteData.sqlite-wal"; sourceTree = "<group>"; };
+		00FDE9FD20633F0800E25E0E /* CCOneVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCOneVC.swift; sourceTree = "<group>"; };
+		00FDE9FF20633F1D00E25E0E /* CCTwoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCTwoVC.swift; sourceTree = "<group>"; };
 		B94ED120A65D5F5E76115D4C /* Pods-OKKLineMin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OKKLineMin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OKKLineMin/Pods-OKKLineMin.debug.xcconfig"; sourceTree = "<group>"; };
 		B95AF30558C165712AA170EF /* Pods-OKKLineMin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OKKLineMin.release.xcconfig"; path = "Pods/Target Support Files/Pods-OKKLineMin/Pods-OKKLineMin.release.xcconfig"; sourceTree = "<group>"; };
 		C95C251741823382CBC59A5D /* Pods_OKKLineMin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OKKLineMin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +128,8 @@
 				0012EE072019C45200EEED92 /* Info.plist */,
 				0012EE492019C56F00EEED92 /* OKKLineMin-Bridging-Header.h */,
 				006D8FCE20625C17008168AA /* CCKlineVC.swift */,
+				00FDE9FD20633F0800E25E0E /* CCOneVC.swift */,
+				00FDE9FF20633F1D00E25E0E /* CCTwoVC.swift */,
 			);
 			path = OKKLineMin;
 			sourceTree = "<group>";
@@ -394,6 +400,7 @@
 				0012EE852019C6F600EEED92 /* OKKLineView.swift in Sources */,
 				0012EE7E2019C6F600EEED92 /* OKMAVOLUMEModel.swift in Sources */,
 				0012EE812019C6F600EEED92 /* OKMALineBrush.swift in Sources */,
+				00FDE9FE20633F0800E25E0E /* CCOneVC.swift in Sources */,
 				0012EE7D2019C6F600EEED92 /* OKMAModel.swift in Sources */,
 				0012EE872019C6F600EEED92 /* OKSegmentView.swift in Sources */,
 				0012EE782019C6F600EEED92 /* OKBOLLModel.swift in Sources */,
@@ -404,6 +411,7 @@
 				006D8FCF20625C17008168AA /* CCKlineVC.swift in Sources */,
 				0012EE7F2019C6F600EEED92 /* OKKLineModel.swift in Sources */,
 				0012EE7B2019C6F600EEED92 /* OKKDJModel.swift in Sources */,
+				00FDEA0020633F1D00E25E0E /* CCTwoVC.swift in Sources */,
 				0012EE822019C6F600EEED92 /* OKKLineAccessoryView.swift in Sources */,
 				0012EE832019C6F600EEED92 /* OKKLineMainView.swift in Sources */,
 				0012EE882019C6F600EEED92 /* OKKLineVolumeView.swift in Sources */,
