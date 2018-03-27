@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CCI-Xi-A1j">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CCI-Xi-A1j">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -53,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aFF-dH-SXr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-588" y="1100"/>
+            <point key="canvasLocation" x="-588" y="1227"/>
         </scene>
         <!--one-->
         <scene sceneID="yAr-be-F2M">
@@ -71,7 +71,7 @@
                                 </constraints>
                                 <state key="normal" title="OKKLineMin Full"/>
                                 <connections>
-                                    <segue destination="71J-Yr-dKi" kind="presentation" id="Bax-EI-XZg"/>
+                                    <segue destination="g0H-98-Tuw" kind="presentation" identifier="one" id="Nje-3d-Ee2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsu-Kt-AqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-588" y="429"/>
+            <point key="canvasLocation" x="-588" y="455"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7uh-r4-tmT">
@@ -105,36 +105,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yTU-PE-PZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1385" y="765"/>
-        </scene>
-        <!--Line MinVC-->
-        <scene sceneID="fBc-19-bvq">
-            <objects>
-                <viewController id="71J-Yr-dKi" customClass="OKKLineMinVC" customModule="OKKLineMin" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="PXo-2u-k1q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMG-BC-WTH">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
-                                <color key="backgroundColor" red="0.50196078430000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="R2a-4K-8bU" firstAttribute="bottom" secondItem="EMG-BC-WTH" secondAttribute="bottom" id="521-Af-3Ww"/>
-                            <constraint firstItem="EMG-BC-WTH" firstAttribute="leading" secondItem="R2a-4K-8bU" secondAttribute="leading" id="PLw-Zp-bAU"/>
-                            <constraint firstItem="R2a-4K-8bU" firstAttribute="trailing" secondItem="EMG-BC-WTH" secondAttribute="trailing" id="gIj-8t-H7V"/>
-                            <constraint firstItem="EMG-BC-WTH" firstAttribute="top" secondItem="R2a-4K-8bU" secondAttribute="top" id="nyW-lk-yQP"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="R2a-4K-8bU"/>
-                    </view>
-                    <connections>
-                        <outlet property="backgroundView" destination="EMG-BC-WTH" id="mLh-xm-fxh"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zUN-ah-eEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="263" y="429"/>
         </scene>
         <!--KlineVC-->
         <scene sceneID="PQm-8u-taF">
@@ -163,10 +133,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NfK-RD-kuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="263" y="1100"/>
+            <point key="canvasLocation" x="273" y="1227"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HW6-ce-NE4"/>
+        <segue reference="Nje-3d-Ee2"/>
     </inferredMetricsTieBreakers>
 </document>

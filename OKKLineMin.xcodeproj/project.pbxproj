@@ -33,7 +33,6 @@
 		0012EE862019C6F600EEED92 /* OKValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0012EE712019C6F600EEED92 /* OKValueView.swift */; };
 		0012EE872019C6F600EEED92 /* OKSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0012EE732019C6F600EEED92 /* OKSegmentView.swift */; };
 		0012EE882019C6F600EEED92 /* OKKLineVolumeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0012EE752019C6F600EEED92 /* OKKLineVolumeView.swift */; };
-		0012EE8A2019C78700EEED92 /* OKKLineMinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0012EE892019C78700EEED92 /* OKKLineMinVC.swift */; };
 		006D8FCF20625C17008168AA /* CCKlineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006D8FCE20625C17008168AA /* CCKlineVC.swift */; };
 		009ECEDF204FC8F200558BC0 /* CCSQLiteData.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 009ECEDD204FC8F200558BC0 /* CCSQLiteData.sqlite-shm */; };
 		009ECEE0204FC8F200558BC0 /* CCSQLiteData.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 009ECEDE204FC8F200558BC0 /* CCSQLiteData.sqlite-wal */; };
@@ -73,7 +72,6 @@
 		0012EE712019C6F600EEED92 /* OKValueView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKValueView.swift; sourceTree = "<group>"; };
 		0012EE732019C6F600EEED92 /* OKSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKSegmentView.swift; sourceTree = "<group>"; };
 		0012EE752019C6F600EEED92 /* OKKLineVolumeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OKKLineVolumeView.swift; sourceTree = "<group>"; };
-		0012EE892019C78700EEED92 /* OKKLineMinVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OKKLineMinVC.swift; sourceTree = "<group>"; };
 		006D8FCE20625C17008168AA /* CCKlineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CCKlineVC.swift; sourceTree = "<group>"; };
 		009ECEDD204FC8F200558BC0 /* CCSQLiteData.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "CCSQLiteData.sqlite-shm"; sourceTree = "<group>"; };
 		009ECEDE204FC8F200558BC0 /* CCSQLiteData.sqlite-wal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "CCSQLiteData.sqlite-wal"; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 				0012EE532019C5CB00EEED92 /* CCSQLiteData */,
 				0012EDFB2019C45200EEED92 /* AppDelegate.swift */,
 				0012EDFD2019C45200EEED92 /* ViewController.swift */,
-				0012EE892019C78700EEED92 /* OKKLineMinVC.swift */,
 				0012EDFF2019C45200EEED92 /* Main.storyboard */,
 				0012EE022019C45200EEED92 /* Assets.xcassets */,
 				0012EE042019C45200EEED92 /* LaunchScreen.storyboard */,
@@ -405,7 +402,6 @@
 				0012EE872019C6F600EEED92 /* OKSegmentView.swift in Sources */,
 				0012EE782019C6F600EEED92 /* OKBOLLModel.swift in Sources */,
 				0012EE7C2019C6F600EEED92 /* OKMACDModel.swift in Sources */,
-				0012EE8A2019C78700EEED92 /* OKKLineMinVC.swift in Sources */,
 				0012EE842019C6F600EEED92 /* OKKLineDrawView.swift in Sources */,
 				0012EE572019C5CB00EEED92 /* CCSQLiteData.m in Sources */,
 				006D8FCF20625C17008168AA /* CCKlineVC.swift in Sources */,
