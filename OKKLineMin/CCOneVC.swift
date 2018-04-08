@@ -22,8 +22,7 @@ class CCOneVC: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if  segue.destination != nil {
-            let vc : CCKlineVC = segue.destination as! CCKlineVC
+        if let vc : CCKlineVC = segue.destination as? CCKlineVC {
             if let vcString = segue.identifier {
                 if vcString == "one" {
                     vc.isFull = true;
