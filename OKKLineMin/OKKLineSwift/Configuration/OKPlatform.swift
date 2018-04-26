@@ -287,4 +287,19 @@ extension CGRect {
     }
 }
 
+extension CGContext {
+    public func setWidthWithRound (_ width: CGFloat) {
+        var useWidth : CGFloat = 0.5
+        if width <= 0.001 || width > 100 {
+            useWidth = 1;
+        } else {
+            useWidth = width;
+        }
+        
+        setLineWidth(useWidth)
+        setLineCap(.round)
+        setLineJoin(.round)
+    }
+}
+
 

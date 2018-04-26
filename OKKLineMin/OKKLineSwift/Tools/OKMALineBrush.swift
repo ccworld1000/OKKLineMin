@@ -48,9 +48,7 @@ class OKMALineBrush {
         self.brushType = brushType
         self.context = context
         
-        context.setLineWidth(configuration.theme.indicatorLineWidth)
-        context.setLineCap(.round)
-        context.setLineJoin(.round)
+        context.setWidthWithRound(configuration.theme.indicatorLineWidth)
         
         switch brushType {
         case .MA(let day):

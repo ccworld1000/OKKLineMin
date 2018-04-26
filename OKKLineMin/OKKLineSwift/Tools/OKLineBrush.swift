@@ -28,6 +28,7 @@
 #endif
 import CoreGraphics
 
+
 class OKLineBrush {
     
     public var indicatorType: OKIndicatorType
@@ -41,28 +42,31 @@ class OKLineBrush {
         self.indicatorType = indicatorType
         self.context = context
         
-        context.setLineWidth(configuration.theme.indicatorLineWidth)
-        context.setLineCap(.round)
-        context.setLineJoin(.round)
+        context.setWidthWithRound(configuration.theme.indicatorLineWidth)
         
+        var useColor : CGColor?
         switch indicatorType {
         case .DIF:
-            context.setStrokeColor(configuration.theme.DIFColor.cgColor)
+            useColor = (configuration.theme.DIFColor.cgColor)
         case .DEA:
-            context.setStrokeColor(configuration.theme.DEAColor.cgColor)
+            useColor = (configuration.theme.DEAColor.cgColor)
         case .KDJ_K:
-            context.setStrokeColor(configuration.theme.KDJ_KColor.cgColor)
+            useColor = (configuration.theme.KDJ_KColor.cgColor)
         case .KDJ_D:
-            context.setStrokeColor(configuration.theme.KDJ_DColor.cgColor)
+            useColor = (configuration.theme.KDJ_DColor.cgColor)
         case .KDJ_J:
-            context.setStrokeColor(configuration.theme.KDJ_JColor.cgColor)
+            useColor = (configuration.theme.KDJ_JColor.cgColor)
         case .BOLL_MB:
-            context.setStrokeColor(configuration.theme.BOLL_MBColor.cgColor)
+            useColor = (configuration.theme.BOLL_MBColor.cgColor)
         case .BOLL_UP:
-            context.setStrokeColor(configuration.theme.BOLL_UPColor.cgColor)
+            useColor = (configuration.theme.BOLL_UPColor.cgColor)
         case .BOLL_DN:
-            context.setStrokeColor(configuration.theme.BOLL_DNColor.cgColor)
+            useColor = (configuration.theme.BOLL_DNColor.cgColor)
         default: break
+        }
+        
+        if let color = useColor {
+            context.setStrokeColor(color)
         }
     }
     

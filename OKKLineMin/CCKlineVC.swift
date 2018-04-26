@@ -50,9 +50,20 @@ class CCKlineVC: UIViewController {
         self.view.backgroundColor = OKConfiguration.sharedConfiguration.main.backgroundColor
         klineView = OKKLineView()
         backgroundView.addSubview(self.klineView)
-        klineView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview()
+        
+        if isFull {
+            klineView.snp.makeConstraints { (make) in
+                make.edges.equalToSuperview()
+            }
+        } else {
+            klineView.snp.makeConstraints { (make) in
+                make.left.equalToSuperview();
+                make.top.equalToSuperview().offset(0.001);
+                make.right.equalToSuperview();
+                make.height.equalTo(backgroundView.bounds.size.height / 2.0 )
+            }
         }
+
         
         backButton = UIButton(type: .custom)
         backButton.setTitle("Back", for: .normal)
