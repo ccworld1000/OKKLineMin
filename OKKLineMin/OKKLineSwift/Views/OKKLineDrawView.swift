@@ -21,11 +21,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
-#if os(iOS) || os(tvOS)
-    import UIKit
-#else
-    import Cocoa
-#endif
+import UIKit
 
 class OKKLineDrawView: OKView {
     
@@ -252,226 +248,22 @@ extension OKKLineDrawView {
     }
 }
 
-#if os(iOS) || os(tvOS)
-    // MARK: - iOS手势
-    extension OKKLineDrawView {
-        /// 移动手势
-        /// 左 -> 右 : x递增, x > 0
-        /// 右 -> 左 : x递减, x < 0
-        /// - Parameter recognizer: UIPanGestureRecognizer
-        @objc
-        fileprivate func panGestureAction(_ recognizer: UIPanGestureRecognizer) {
-            
-            switch recognizer.state {
-            case .began:
-                lastPanPoint = recognizer.location(in: recognizer.view)
-            case .changed:
-                
-                let location = recognizer.location(in: recognizer.view)
-                let klineUnit = configuration.theme.klineWidth + configuration.theme.klineSpace
-                
-                if abs(location.x - lastPanPoint!.x) < klineUnit {
-                    return
-                }
-                
-                lastOffsetIndex = Int((location.x - lastPanPoint!.x) / klineUnit)
-                
-                drawKLineView(false)
-                // 记录上次点
-                lastPanPoint = location
-                
-            case .ended:
-                
-                lastOffsetIndex = nil
-                lastPanPoint = nil
-                
-            default: break
-            }
-        }
+
+// MARK: - iOS手势
+extension OKKLineDrawView {
+    /// 移动手势
+    /// 左 -> 右 : x递增, x > 0
+    /// 右 -> 左 : x递减, x < 0
+    /// - Parameter recognizer: UIPanGestureRecognizer
+    @objc
+    fileprivate func panGestureAction(_ recognizer: UIPanGestureRecognizer) {
         
-        // MARK: 捏合手势
-        
-        /// 捏合手势
-        /// 内 -> 外: recognizer.scale 递增, 且recognizer.scale > 1.0
-        /// 外 -> 内: recognizer.scale 递减, 且recognizer.scale < 1.0
-        /// - Parameter recognizer: UIPinchGestureRecognizer
-        @objc
-        fileprivate func pinchAction(_ recognizer: UIPinchGestureRecognizer) {
+        switch recognizer.state {
+        case .began:
+            lastPanPoint = recognizer.location(in: recognizer.view)
+        case .changed:
             
-            let difValue = recognizer.scale - lastScale
-            
-            if abs(difValue) > configuration.theme.klineScale {
-                
-                let lastKLineWidth: CGFloat = configuration.theme.klineWidth
-                let newKLineWidth: CGFloat = configuration.theme.klineWidth * (difValue > 0 ?
-                    (1 + configuration.theme.klineScaleFactor) : (1 - configuration.theme.klineScaleFactor))
-                
-                // 超过限制 不在绘制
-                if newKLineWidth > configuration.theme.klineMaxWidth || newKLineWidth < configuration.theme.klineMinWidth {
-                    return
-                }
-                
-                configuration.theme.klineWidth = newKLineWidth
-                lastScale = recognizer.scale
-                
-                if recognizer.numberOfTouches == 2 {
-                    
-                    let pinchPoint1 = recognizer.location(ofTouch: 0, in: recognizer.view)
-                    let pinchPoint2 = recognizer.location(ofTouch: 1, in: recognizer.view)
-                    
-                    let centerPoint = CGPoint(x: (pinchPoint1.x + pinchPoint2.x) * 0.5,
-                                              y: (pinchPoint1.y + pinchPoint2.y) * 0.5)
-                    
-                    let lastOffsetCount = Int(centerPoint.x / (configuration.theme.klineSpace + lastKLineWidth))
-                    let newOffsetCount = Int(centerPoint.x / (configuration.theme.klineSpace + configuration.theme.klineWidth))
-                    
-                    lastOffsetIndex = newOffsetCount - lastOffsetCount
-                    
-                }
-                drawKLineView(false)
-                lastOffsetIndex = nil
-            }
-        }
-        
-        // MARK: 长按手势
-        @objc
-        fileprivate func longPressAction(_ recognizer: UILongPressGestureRecognizer) {
-            
-            if recognizer.state == .began || recognizer.state == .changed {
-                
-                let location: CGPoint = recognizer.location(in: recognizer.view)
-                
-                if location.x <= drawValueViewWidth { return }
-                
-                let unit = configuration.theme.klineWidth + configuration.theme.klineSpace
-                
-                let offsetCount: Int = Int((location.x - drawValueViewWidth) / unit)
-                let previousOffset: CGFloat = (CGFloat(offsetCount) + 0.5) * unit + drawValueViewWidth
-                let nextOffset: CGFloat = (CGFloat(offsetCount + 1) + 0.5) * unit + drawValueViewWidth
-                
-                /// 显示十字线
-                indicatorVerticalView.isHidden = false
-                indicatorHorizontalView.isHidden = false
-                
-                var drawModel: OKKLineModel?
-                
-                mainValueView.currentValueDrawPoint = nil
-                volumeValueView.currentValueDrawPoint = nil
-                accessoryValueView.currentValueDrawPoint = nil
-                
-                if mainView.point(inside: convert(location, to: mainView), with: nil) {
-                    
-                    mainValueView.currentValueDrawPoint = convert(location, to: mainView)
-                    
-                } else if volumeView.point(inside: convert(location, to: volumeView), with: nil) {
-                    
-                    volumeValueView.currentValueDrawPoint = convert(location, to: volumeView)
-                    
-                } else if accessoryView.point(inside: convert(location, to: accessoryView), with: nil) {
-                    
-                    accessoryValueView.currentValueDrawPoint = convert(location, to: accessoryView)
-                }
-                
-                indicatorHorizontalView.snp.updateConstraints({ (make) in
-                    make.top.equalTo(location.y)
-                })
-                
-                if abs(previousOffset - location.x) < abs(nextOffset - location.x) {
-                    
-                    indicatorVerticalView.snp.updateConstraints({ (make) in
-                        make.leading.equalTo(previousOffset)
-                    })
-                    
-                    if configuration.dataSource.drawKLineModels.count > offsetCount {
-                        drawModel = configuration.dataSource.drawKLineModels[offsetCount]
-                    }
-                    
-                } else {
-                    
-                    indicatorVerticalView.snp.updateConstraints({ (make) in
-                        make.leading.equalTo(nextOffset)
-                    })
-                    if configuration.dataSource.drawKLineModels.count > offsetCount {
-                        drawModel = configuration.dataSource.drawKLineModels[offsetCount + 1]
-                    }
-                }
-                
-                mainView.drawAssistView(model: drawModel)
-                volumeView.drawVolumeAssistView(model: drawModel)
-                accessoryView.drawAssistView(model: drawModel)
-                
-            } else if recognizer.state == .ended {
-                // 隐藏十字线
-                indicatorVerticalView.isHidden = true
-                indicatorHorizontalView.isHidden = true
-                
-                mainValueView.currentValueDrawPoint = nil
-                volumeValueView.currentValueDrawPoint = nil
-                accessoryValueView.currentValueDrawPoint = nil
-                
-                mainView.drawAssistView(model: nil)
-                volumeView.drawVolumeAssistView(model: nil)
-                accessoryView.drawAssistView(model: nil)
-            }
-        }
-    }
-#else
-    // MARK: - macOS手势
-    extension OKKLineDrawView {
-        
-        override func cursorUpdate(with event: NSEvent) {
-            
-        }
-        
-        override func updateTrackingAreas() {
-            super.updateTrackingAreas()
-            
-            let trackingArea = NSTrackingArea(rect: bounds, options: [.mouseMoved, .mouseEnteredAndExited, .activeAlways, .cursorUpdate], owner: self, userInfo: nil)
-            addTrackingArea(trackingArea)
-        }
-        
-        /// magic mouse 滚动事件
-        /// 上 -> 下 : 放大 event.scrollingDeltaY > 0
-        /// 下 -> 上 : 缩小 event.scrollingDeltaY < 0
-        /// - Parameter event: 事件
-        override func scrollWheel(with event: NSEvent) {
-            
-            let location = convert(event.locationInWindow, from: nil)
-            // 不在k线的界面
-            if location.x < drawValueViewWidth { return }
-            
-            let lastKLineWidth: CGFloat = configuration.theme.klineWidth
-            let newKLineWidth: CGFloat = configuration.theme.klineWidth * (event.scrollingDeltaY > 0 ?
-                (1 + configuration.theme.klineScaleFactor) : (1 - configuration.theme.klineScaleFactor))
-            
-            // 超过限制 不在绘制
-            if newKLineWidth > configuration.theme.klineMaxWidth
-                || newKLineWidth < configuration.theme.klineMinWidth {
-                return
-            }
-            
-            configuration.theme.klineWidth = newKLineWidth
-            
-            let lastOffsetCount = Int(location.x / (configuration.theme.klineSpace + lastKLineWidth))
-            let newOffsetCount = Int(location.x / (configuration.theme.klineSpace + configuration.theme.klineWidth))
-            
-            lastOffsetIndex = newOffsetCount - lastOffsetCount
-            
-            drawKLineView(false)
-            lastOffsetIndex = nil
-        }
-        
-        // MARK: 鼠标按住拖拽事件
-        
-        override func mouseDown(with event: NSEvent) {
-            lastPanPoint = convert(event.locationInWindow, from: nil)
-        }
-        
-        override func mouseDragged(with event: NSEvent) {
-            
-            NSCursor.openHand().set()
-            
-            let location = convert(event.locationInWindow, from: nil)
+            let location = recognizer.location(in: recognizer.view)
             let klineUnit = configuration.theme.klineWidth + configuration.theme.klineSpace
             
             if abs(location.x - lastPanPoint!.x) < klineUnit {
@@ -484,46 +276,67 @@ extension OKKLineDrawView {
             // 记录上次点
             lastPanPoint = location
             
-            layoutIndicatorView(with: event)
-        }
-        
-        override func mouseUp(with event: NSEvent) {
+        case .ended:
             
             lastOffsetIndex = nil
             lastPanPoint = nil
+            
+        default: break
         }
-
-        // MARK: 鼠标移动事件
+    }
+    
+    // MARK: 捏合手势
+    
+    /// 捏合手势
+    /// 内 -> 外: recognizer.scale 递增, 且recognizer.scale > 1.0
+    /// 外 -> 内: recognizer.scale 递减, 且recognizer.scale < 1.0
+    /// - Parameter recognizer: UIPinchGestureRecognizer
+    @objc
+    fileprivate func pinchAction(_ recognizer: UIPinchGestureRecognizer) {
         
-        override func mouseMoved(with event: NSEvent) {
+        let difValue = recognizer.scale - lastScale
+        
+        if abs(difValue) > configuration.theme.klineScale {
             
-            NSCursor.crosshair().set()
-            layoutIndicatorView(with: event)
+            let lastKLineWidth: CGFloat = configuration.theme.klineWidth
+            let newKLineWidth: CGFloat = configuration.theme.klineWidth * (difValue > 0 ?
+                (1 + configuration.theme.klineScaleFactor) : (1 - configuration.theme.klineScaleFactor))
+            
+            // 超过限制 不在绘制
+            if newKLineWidth > configuration.theme.klineMaxWidth || newKLineWidth < configuration.theme.klineMinWidth {
+                return
+            }
+            
+            configuration.theme.klineWidth = newKLineWidth
+            lastScale = recognizer.scale
+            
+            if recognizer.numberOfTouches == 2 {
+                
+                let pinchPoint1 = recognizer.location(ofTouch: 0, in: recognizer.view)
+                let pinchPoint2 = recognizer.location(ofTouch: 1, in: recognizer.view)
+                
+                let centerPoint = CGPoint(x: (pinchPoint1.x + pinchPoint2.x) * 0.5,
+                                          y: (pinchPoint1.y + pinchPoint2.y) * 0.5)
+                
+                let lastOffsetCount = Int(centerPoint.x / (configuration.theme.klineSpace + lastKLineWidth))
+                let newOffsetCount = Int(centerPoint.x / (configuration.theme.klineSpace + configuration.theme.klineWidth))
+                
+                lastOffsetIndex = newOffsetCount - lastOffsetCount
+                
+            }
+            drawKLineView(false)
+            lastOffsetIndex = nil
         }
+    }
+    
+    // MARK: 长按手势
+    @objc
+    fileprivate func longPressAction(_ recognizer: UILongPressGestureRecognizer) {
         
-        override func mouseExited(with event: NSEvent) {
+        if recognizer.state == .began || recognizer.state == .changed {
             
-            // 隐藏十字线
-            indicatorVerticalView.isHidden = true
-            indicatorHorizontalView.isHidden = true
+            let location: CGPoint = recognizer.location(in: recognizer.view)
             
-            mainValueView.currentValueDrawPoint = nil
-            volumeValueView.currentValueDrawPoint = nil
-            accessoryValueView.currentValueDrawPoint = nil
-            
-            mainView.drawAssistView(model: nil)
-            volumeView.drawVolumeAssistView(model: nil)
-            accessoryView.drawAssistView(model: nil)
-            
-        }
-        
-        /// 布局十字线视图
-        ///
-        /// - Parameter event: 鼠标事件
-        private func layoutIndicatorView(with event: NSEvent) {
-            
-            // 鼠标在当前视图上的位置
-            let location: CGPoint = convert(event.locationInWindow, from: nil)
             if location.x <= drawValueViewWidth { return }
             
             let unit = configuration.theme.klineWidth + configuration.theme.klineSpace
@@ -535,31 +348,30 @@ extension OKKLineDrawView {
             /// 显示十字线
             indicatorVerticalView.isHidden = false
             indicatorHorizontalView.isHidden = false
-
+            
             var drawModel: OKKLineModel?
             
             mainValueView.currentValueDrawPoint = nil
             volumeValueView.currentValueDrawPoint = nil
             accessoryValueView.currentValueDrawPoint = nil
-
-            if mouse(convert(location, to: mainView), in: mainView.bounds) {
+            
+            if mainView.point(inside: convert(location, to: mainView), with: nil) {
                 
                 mainValueView.currentValueDrawPoint = convert(location, to: mainView)
                 
-            } else if mouse(convert(location, to: volumeView), in: volumeView.bounds) {
+            } else if volumeView.point(inside: convert(location, to: volumeView), with: nil) {
                 
                 volumeValueView.currentValueDrawPoint = convert(location, to: volumeView)
                 
-            } else if mouse(convert(location, to: accessoryView), in: accessoryView.bounds) {
+            } else if accessoryView.point(inside: convert(location, to: accessoryView), with: nil) {
                 
                 accessoryValueView.currentValueDrawPoint = convert(location, to: accessoryView)
             }
             
-            // 调整十字线位置
             indicatorHorizontalView.snp.updateConstraints({ (make) in
                 make.top.equalTo(location.y)
             })
-
+            
             if abs(previousOffset - location.x) < abs(nextOffset - location.x) {
                 
                 indicatorVerticalView.snp.updateConstraints({ (make) in
@@ -579,10 +391,23 @@ extension OKKLineDrawView {
                     drawModel = configuration.dataSource.drawKLineModels[offsetCount + 1]
                 }
             }
-
+            
             mainView.drawAssistView(model: drawModel)
             volumeView.drawVolumeAssistView(model: drawModel)
             accessoryView.drawAssistView(model: drawModel)
+            
+        } else if recognizer.state == .ended {
+            // 隐藏十字线
+            indicatorVerticalView.isHidden = true
+            indicatorHorizontalView.isHidden = true
+            
+            mainValueView.currentValueDrawPoint = nil
+            volumeValueView.currentValueDrawPoint = nil
+            accessoryValueView.currentValueDrawPoint = nil
+            
+            mainView.drawAssistView(model: nil)
+            volumeView.drawVolumeAssistView(model: nil)
+            accessoryView.drawAssistView(model: nil)
         }
     }
-#endif
+}

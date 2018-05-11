@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0012EDFC2019C45200EEED92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0012EDFB2019C45200EEED92 /* AppDelegate.swift */; };
-		0012EDFE2019C45200EEED92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0012EDFD2019C45200EEED92 /* ViewController.swift */; };
 		0012EE012019C45200EEED92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0012EDFF2019C45200EEED92 /* Main.storyboard */; };
 		0012EE032019C45200EEED92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0012EE022019C45200EEED92 /* Assets.xcassets */; };
 		0012EE062019C45200EEED92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0012EE042019C45200EEED92 /* LaunchScreen.storyboard */; };
@@ -44,7 +43,6 @@
 /* Begin PBXFileReference section */
 		0012EDF82019C45200EEED92 /* OKKLineMin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OKKLineMin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0012EDFB2019C45200EEED92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0012EDFD2019C45200EEED92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0012EE002019C45200EEED92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0012EE022019C45200EEED92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0012EE052019C45200EEED92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -118,15 +116,14 @@
 				0012EE592019C6F600EEED92 /* OKKLineSwift */,
 				0012EE532019C5CB00EEED92 /* CCSQLiteData */,
 				0012EDFB2019C45200EEED92 /* AppDelegate.swift */,
-				0012EDFD2019C45200EEED92 /* ViewController.swift */,
+				006D8FCE20625C17008168AA /* CCKlineVC.swift */,
+				00FDE9FD20633F0800E25E0E /* CCOneVC.swift */,
+				00FDE9FF20633F1D00E25E0E /* CCTwoVC.swift */,
 				0012EDFF2019C45200EEED92 /* Main.storyboard */,
 				0012EE022019C45200EEED92 /* Assets.xcassets */,
 				0012EE042019C45200EEED92 /* LaunchScreen.storyboard */,
 				0012EE072019C45200EEED92 /* Info.plist */,
 				0012EE492019C56F00EEED92 /* OKKLineMin-Bridging-Header.h */,
-				006D8FCE20625C17008168AA /* CCKlineVC.swift */,
-				00FDE9FD20633F0800E25E0E /* CCOneVC.swift */,
-				00FDE9FF20633F1D00E25E0E /* CCTwoVC.swift */,
 			);
 			path = OKKLineMin;
 			sourceTree = "<group>";
@@ -411,7 +408,6 @@
 				0012EE822019C6F600EEED92 /* OKKLineAccessoryView.swift in Sources */,
 				0012EE832019C6F600EEED92 /* OKKLineMainView.swift in Sources */,
 				0012EE882019C6F600EEED92 /* OKKLineVolumeView.swift in Sources */,
-				0012EDFE2019C45200EEED92 /* ViewController.swift in Sources */,
 				0012EE862019C6F600EEED92 /* OKValueView.swift in Sources */,
 				0012EE762019C6F600EEED92 /* OKConfiguration.swift in Sources */,
 				0012EE802019C6F600EEED92 /* OKLineBrush.swift in Sources */,

@@ -21,32 +21,17 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
+import UIKit
 import SnapKit
 import CoreFoundation
 
-#if os(iOS) || os(tvOS)
-    
-    import UIKit
-    public typealias OKFont = UIFont
-    public typealias OKColor = UIColor
-    public typealias OKEdgeInsets = UIEdgeInsets
-    
-    func OKGraphicsGetCurrentContext() -> CGContext? {
-        return UIGraphicsGetCurrentContext()
-    }
-    
-#else
-    
-    import Cocoa
-    public typealias OKFont = NSFont
-    public typealias OKColor = NSColor
-    public typealias OKEdgeInsets = NSEdgeInsets
-    
-    func OKGraphicsGetCurrentContext() -> CGContext? {
-        return NSGraphicsContext.current()?.cgContext
-    }
-    
-#endif
+public typealias OKFont = UIFont
+public typealias OKColor = UIColor
+public typealias OKEdgeInsets = UIEdgeInsets
+
+func OKGraphicsGetCurrentContext() -> CGContext? {
+    return UIGraphicsGetCurrentContext()
+}
 
 extension OKFont {
     
@@ -57,13 +42,6 @@ extension OKFont {
     public class func boldSystemFont(size: CGFloat) -> OKFont {
         return boldSystemFont(ofSize: size)
     }
-    
-    #if os(OSX)
-        public var lineHeight: CGFloat {
-            // Not sure if this is right, but it looks okay
-            return self.boundingRectForFont.size.height
-        }
-    #endif
 }
 
 extension OKColor {
@@ -88,121 +66,42 @@ extension OKColor {
     }
 }
 
-
-#if os(iOS) || os(tvOS)
-
-    class OKView: UIView {
-        
-        public var okBackgroundColor: OKColor? {
-            didSet {
-                backgroundColor = okBackgroundColor
-            }
-        }
-        
-        public func okSetNeedsDisplay() {
-            setNeedsDisplay()
-        }
-        
-        public func okSetNeedsDisplay(_ rect: CGRect) {
-            setNeedsDisplay(rect)
-        }
-        
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-        }
-        
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+class OKView: UIView {
     
-        override func draw(_ rect: CGRect) {
-            super.draw(rect)
+    public var okBackgroundColor: OKColor? {
+        didSet {
+            backgroundColor = okBackgroundColor
         }
+    }
+    
+    public func okSetNeedsDisplay() {
+        setNeedsDisplay()
+    }
+    
+    public func okSetNeedsDisplay(_ rect: CGRect) {
+        setNeedsDisplay(rect)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
-    class OKScrollView: UIScrollView {
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+    }
+}
 
-    }
-    
-    class OKButton: UIButton {
-        
-    }
-    
-#else
+class OKScrollView: UIScrollView {
 
-    class OKView: NSView {
-        
-        public var okBackgroundColor: OKColor? {
-            didSet {
-                wantsLayer = true
-                layer?.backgroundColor = okBackgroundColor?.cgColor
-            }
-        }
-        
-        public func okSetNeedsDisplay() {
-            setNeedsDisplay(bounds)
-        }
-        
-        public func okSetNeedsDisplay(_ rect: CGRect) {
-            setNeedsDisplay(rect)
-        }
-        
-        public override var isFlipped: Bool {
-            get {
-                return true
-            }
-        }
-        
-        override init(frame frameRect: NSRect) {
-            super.init(frame: frameRect)
-        }
-        
-        public required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
-        public override func draw(_ dirtyRect: NSRect) {
-            super.draw(dirtyRect)
-        
-            // Drawing code here.
-        }
-    }
+}
+
+class OKButton: UIButton {
     
-    class OKScrollView: NSScrollView {
-        
-        public override var isFlipped: Bool {
-            get {
-                return true
-            }
-        }
-        
-        public var showsVerticalScrollIndicator: Bool = true {
-            didSet {
-                hasVerticalScroller = showsVerticalScrollIndicator
-            }
-        }
-        
-        public var showsHorizontalScrollIndicator: Bool = true {
-            didSet {
-                hasHorizontalRuler = showsHorizontalScrollIndicator
-            }
-        }
-    }
-    
-    class OKButton: NSButton {
-        
-        public var okBackgroundColor: OKColor? {
-            didSet {
-                if let buttonCell = cell as? NSButtonCell {
-                    buttonCell.isBordered = false
-                    buttonCell.backgroundColor = okBackgroundColor
-                }
-            }
-        }
-        
-    }
-    
-#endif
+}
 
 public func OKPrint(_ object: @autoclosure() -> Any?,
                     _ file: String = #file,
