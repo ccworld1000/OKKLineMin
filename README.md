@@ -4,6 +4,9 @@
 
 **OKKLineMin kline for min for learning for iPhone** *(support Swift4 & iPhone X)* 
 
+### 中文链接
+[https://ccworld1000.github.io/2018/08/23/OKKLineMin-kline-for-min-for-learning-for-iPhone-support-Swift4-iPhone-X](https://ccworld1000.github.io/2018/08/23/OKKLineMin-kline-for-min-for-learning-for-iPhone-support-Swift4-iPhone-X/)
+
 ### Screenshot
 
 [Support drag gestures, long press gestures (see details), knead gestures (zoom in)]
