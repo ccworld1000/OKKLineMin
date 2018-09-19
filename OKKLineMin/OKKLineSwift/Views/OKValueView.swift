@@ -39,8 +39,8 @@ class OKValueView: OKView {
 
     private let configuration = OKConfiguration.sharedConfiguration
     private var drawEdgeInsets: OKEdgeInsets!
-    private var limitValueAttrs: [NSAttributedStringKey : Any]?!
-    private var currentValueAttrs: [NSAttributedStringKey : Any]?!
+    private var limitValueAttrs: [NSAttributedString.Key : Any]?!
+    private var currentValueAttrs: [NSAttributedString.Key : Any]?!
     private let separate: CGFloat = 20.0
     
     convenience init(drawEdgeInsets: OKEdgeInsets) {
@@ -51,15 +51,15 @@ class OKValueView: OKView {
         textStyle.alignment = .center
         
         limitValueAttrs = [
-            NSAttributedStringKey.foregroundColor : configuration.value.textColor,
-            NSAttributedStringKey.font : configuration.value.textFont,
-            NSAttributedStringKey.paragraphStyle : textStyle
+            NSAttributedString.Key.foregroundColor : configuration.value.textColor,
+            NSAttributedString.Key.font : configuration.value.textFont,
+            NSAttributedString.Key.paragraphStyle : textStyle
         ]
         
         currentValueAttrs = [
-            NSAttributedStringKey.foregroundColor : configuration.value.textColor,
-            NSAttributedStringKey.font : configuration.value.textFont,
-            NSAttributedStringKey.paragraphStyle : textStyle,
+            NSAttributedString.Key.foregroundColor : configuration.value.textColor,
+            NSAttributedString.Key.font : configuration.value.textFont,
+            NSAttributedString.Key.paragraphStyle : textStyle,
         ]
 
     }
