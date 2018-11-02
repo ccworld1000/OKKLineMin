@@ -6,6 +6,6 @@ target 'OKKLineMin' do
 
   # Pods for OKKLineMin
   pod 'CCSQLite'
-  pod 'SnapKit', '~> 4.0.0'
+  pod 'SnapKit', '~> 4.2.0'
 
 end
