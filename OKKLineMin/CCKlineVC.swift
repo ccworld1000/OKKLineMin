@@ -24,14 +24,8 @@ class CCKlineVC: UIViewController {
         sqliteHandle()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        UIApplication.shared.isStatusBarHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        UIApplication.shared.isStatusBarHidden = false
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
