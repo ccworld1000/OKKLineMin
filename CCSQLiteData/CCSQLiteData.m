@@ -8,7 +8,7 @@
 //
 
 #import "CCSQLiteData.h"
-#import "CCSQLite/CCSQLite.h" // if error try #import "CCSQLite/CCSQLite.h" or #import "CCSQLite.h"
+#import "CCSQLite.h" // if error try #import "CCSQLite/CCSQLite.h" or #import "CCSQLite.h"
 
 #define CCSQLiteDataDB @"CCSQLiteData.sqlite"
 

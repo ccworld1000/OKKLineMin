@@ -322,7 +322,6 @@ extension OKKLineDrawView {
                 let newOffsetCount = Int(centerPoint.x / (configuration.theme.klineSpace + configuration.theme.klineWidth))
                 
                 lastOffsetIndex = newOffsetCount - lastOffsetCount
-                
             }
             drawKLineView(false)
             lastOffsetIndex = nil
