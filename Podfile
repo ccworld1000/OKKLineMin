@@ -5,7 +5,7 @@ target 'OKKLineMin' do
   use_frameworks!
 
   # Pods for OKKLineMin
-  pod 'CCSQLite'
-  pod 'SnapKit', '~> 5.0.0'
+  pod 'CCSQLite', '~> 3.0.3'
+  pod 'SnapKit', '~> 5.0.1'
 
 end
