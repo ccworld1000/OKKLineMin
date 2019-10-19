@@ -43,7 +43,7 @@ class OKSegmentView: OKView {
     public var didSelectedSegment: ((_ segmentView: OKSegmentView, _ result: (index: Int, title: String)) -> Void)?
     
     private let configuration = OKConfiguration.sharedConfiguration
-    private var scrollView: OKScrollView!
+    private var scrollView: OKScrollView = OKScrollView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,9 +54,7 @@ class OKSegmentView: OKView {
         
         self.titles = titles
         self.direction = direction
-        
-        
-        scrollView = OKScrollView()
+
         scrollView.showsVerticalScrollIndicator = false
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.backgroundColor = configuration.main.backgroundColor
@@ -117,35 +115,8 @@ class OKSegmentView: OKView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    #if os(OSX)
-        override func layout() {
-            super.layout()
-            switch direction {
-            case .horizontal:
-                if let contentView = scrollView.documentView {
-                    contentView.snp.makeConstraints({ (make) in
-                        make.top.leading.bottom.equalToSuperview()
-                        let width = CGFloat(100 * titles.count) > bounds.width ? CGFloat(100 * titles.count) : bounds.width
-                        make.size.equalTo(CGSize(width: width, height: 44.0))
-                    })
-                }
-            case .vertical:
-                if let contentView = scrollView.documentView {
-                    contentView.snp.makeConstraints({ (make) in
-                        make.top.leading.bottom.equalToSuperview()
-                        let height = CGFloat(44 * titles.count) > bounds.height ? CGFloat(44 * titles.count) : bounds.height
-                        make.size.equalTo(CGSize(width: 50, height: height))
-                    })
-                }
-            }
-        }
-    
-    #endif
-    
-    
     @objc
     private func selectedAction(_ sender: OKButton) {
-
         delegate?.didSelectedSegment?(segmentView: self, index: sender.tag, title: titles[sender.tag])
         didSelectedSegment?(self, (sender.tag, titles[sender.tag]))
     }

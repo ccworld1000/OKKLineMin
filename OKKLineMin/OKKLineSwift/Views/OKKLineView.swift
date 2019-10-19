@@ -67,12 +67,7 @@ class OKKLineView: OKView {
         let timeTitles = ["分时", "1分", "5分", "15分", "30分", "60分", "日K", "周K", "月K", "季K", "年K"]
         timeSegmentView = OKSegmentView(direction: .horizontal, titles: timeTitles)
         timeSegmentView.didSelectedSegment = { [weak self] (segmentView, result) -> Void in
-            if result.index == 0 {
-                self?.configuration.main.klineType = .timeLine
-            } else {
-                self?.configuration.main.klineType = .KLine
-            }
-            
+            self?.configuration.main.klineType = (result.index == 0) ? .timeLine : .KLine
             self?.klineDrawView.drawKLineView(true)
         }
         addSubview(timeSegmentView)
