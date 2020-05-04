@@ -10,31 +10,31 @@
 
 [Support drag gestures, long press gestures (see details), knead gestures (zoom in)]
 
-![OKKLineMin](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/OKKLineMin.gif)
+![OKKLineMin](https://raw.github.com/ccworld1000/OKKLineMin/master/Screenshot/OKKLineMin.gif)
 
 iPhone X Full
 
-![X](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/X.png) 
+![X](https://raw.github.com/ccworld1000/OKKLineMin/master/Screenshot/X.png) 
 
 iPhone X Half
 
-![X](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/Half.png) 
+![X](https://raw.github.com/ccworld1000/OKKLineMin/master/Screenshot/Half.png) 
 
 iPhone 11 & iOS 13
 
-![iPhone 11 & iOS 13](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/iPhone11.png) 
+![iPhone 11 & iOS 13](https://raw.github.com/ccworld1000/OKKLineMin/master/Screenshot/iPhone11.png) 
 
 iPhone 11 & iOS 13.4
 
-![iPhone 11 & iOS 13.4](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/iPhone11_134.png) 
+![iPhone 11 & iOS 13.4](https://raw.github.com/ccworld1000/OKKLineMin/master/Screenshot/iPhone11_134.png) 
 
 iPhone Device
 
-![iPhoneDevice](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/iPhoneDevice.png) 
+![iPhoneDevice](https://raw.github.com/ccworld1000/OKKLineMin/master/Screenshot/iPhoneDevice.png) 
 
 Extension or self implementation examples
 
-![US](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/US.png) 
+![US](https://raw.github.com/ccworld1000/OKKLineMin/master/Screenshot/US.png) 
 
 
 # MIT License
