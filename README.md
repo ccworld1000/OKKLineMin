@@ -32,6 +32,10 @@ iPhone Device
 
 ![iPhoneDevice](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/iPhoneDevice.png) 
 
+Extension or self implementation examples
+
+![US](https://github.com/ccworld1000/OKKLineMin/blob/master/Screenshot/US.png) 
+
 
 # MIT License
 ***
