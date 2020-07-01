@@ -1,7 +1,7 @@
 <H3 align="center">OKKLineMin</H3>
 ### Intro
 
-**OKKLineMin kline for min for learning for iPhone** *(support Swift5 & iPhone X & iPhone 11 & iOS 13 &  iOS 13.4)* 
+**OKKLineMin kline for min for learning for iPhone** *(support Swift5 & iPhone X & iPhone 12 & iOS 14)* 
 
 ### 中文链接
 [https://ccworld1000.github.io/2018/08/23/OKKLineMin-kline-for-min-for-learning-for-iPhone-support-Swift4-iPhone-X](https://ccworld1000.github.io/2018/08/23/OKKLineMin-kline-for-min-for-learning-for-iPhone-support-Swift4-iPhone-X/)
@@ -24,9 +24,9 @@ iPhone 11 & iOS 13
 
 ![iPhone 11 & iOS 13](https://raw.github.com/ccworld1000/OKKLineMin/master/Screenshot/iPhone11.png) 
 
-iPhone 11 & iOS 13.4
+iPhone 12 & iOS 14
 
-![iPhone 11 & iOS 13.4](https://raw.github.com/ccworld1000/OKKLineMin/master/Screenshot/iPhone11_134.png) 
+![iPhone 12 & iOS 14](https://raw.github.com/ccworld1000/OKKLineMin/master/Screenshot/14.png) 
 
 iPhone Device
 
