@@ -15,8 +15,6 @@
 @implementation CCSQLiteData
 
 + (void) writeDataList {
-    NSLog(@"writeDataList");
-    
     NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES)  lastObject] stringByAppendingPathComponent:CCSQLiteDataDB];
     
     CCKeyValue *kv = [CCKeyValue defaultKeyValueWithPath:path];
@@ -46,14 +44,11 @@
 }
 
 + (NSArray *) readDataList {
-    NSLog(@"readDataList");
-    
     NSString *path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES)  lastObject] stringByAppendingPathComponent:CCSQLiteDataDB];
     return [self readDataListAtPath:path];
 }
 
 + (NSArray *) readDefaultDataList {
-    NSLog(@"readDefaultDataList");
     NSString *path = [[NSBundle mainBundle] pathForResource:@"CCSQLiteData" ofType:@"sqlite"];
     return [self readDataListAtPath:path];
 }
