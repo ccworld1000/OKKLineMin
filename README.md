@@ -1,10 +1,9 @@
 <H3 align="center">OKKLineMin</H3>
-
 ### Intro
 
-**OKKLineMin kline for min for learning for iPhone** *(support Swift5 & iPhone X & iPhone 12 & iOS 14)* 
+**OKKLineMin kline for min for learning for iPhone** *(support Swift5 & the latest iPhone X & iPhone & iOS 15)* 
 
-### 中文链接
+### Chinese link
 [https://ccworld1000.github.io/2018/08/23/OKKLineMin-kline-for-min-for-learning-for-iPhone-support-Swift4-iPhone-X](https://ccworld1000.github.io/2018/08/23/OKKLineMin-kline-for-min-for-learning-for-iPhone-support-Swift4-iPhone-X/)
 
 ### Screenshot
